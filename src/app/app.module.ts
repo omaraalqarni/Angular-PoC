@@ -6,13 +6,15 @@ import { FormsModule } from '@angular/forms';
 
 import {MatDialogModule} from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent
+    UserComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,

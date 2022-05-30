@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../user'
-
+import {MatDialog} from '@angular/material/dialog';
+import { UserDetailsComponent } from '../user-details/user-details.component';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -17,13 +18,19 @@ export class UserComponent implements OnInit {
   ];
   selectedUser?: User;
 
-  constructor() { }
+  constructor(private matDialog : MatDialog) { }
   
   
   ngOnInit(): void {
   }
   onSelect(user: User): void {
     this.selectedUser = user;
+    this.matDialog.open(UserDetailsComponent,
+      {
+        data: {
+          id: user.id, 
+          name: user.name}
+      },
+      );
   }
-
 }
