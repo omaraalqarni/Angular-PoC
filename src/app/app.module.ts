@@ -10,11 +10,13 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+
   ],
   imports: [
     BrowserModule,

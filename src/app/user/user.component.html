@@ -1,10 +1,24 @@
 <h2>Developers list</h2>
+
+<form >
+  <input placeholder="Enter the user name" type="text" #userName> <br>
+  <input type="text" placeholder="Enter the user details" #userDetails>
+  <br>
+  <button>
+    <span class="badge" (click)="add(userName.value, userDetails.value)">Add user</span>
+  </button>
+</form>
+
+
 <ul class="users">
   <li *ngFor="let user of users">
     <button [class.selected]="user === selectedUser" type="button" (click)="onSelect(user)">
       <span class="badge">{{user.id}}</span>
       <span class="name">{{user.name}}</span>
+      
+      <button class="badge" (click)="delete(user)" >delete</button>
     </button>
+
   </li>
 </ul>
-<!-- <app-user-details>[user]="selectedUser"</app-user-details> -->
+<app-user-details>[user]="selectedUser"</app-user-details>

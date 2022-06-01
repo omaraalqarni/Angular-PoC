@@ -9,11 +9,12 @@ import {MatDialog} from '@angular/material/dialog';
 })
 export class UserDetailsComponent implements OnInit {
   @Input() user?: User;
-
-  constructor(@Inject(MatDialog) private data:{id:number, details:string} ) { }
-
+  
+  constructor( @Inject(MatDialog) public data:{id:number, details:string} ) { }
+  //
   ngOnInit(): void {
-
+    
   }
+
 
 }
