@@ -1,46 +1,57 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from '../user'
-import {MatDialog} from '@angular/material/dialog';
-import { UserDetailsComponent } from '../user-details/user-details.component';
-import {UserService} from '../user.service';
-import {NgForm} from '@angular/forms';
+import { User } from '../user';
+import { MatDialog } from '@angular/material/dialog';
+import { UserService } from '../shared/user-service/user.service';
+import { NgForm } from '@angular/forms';
+
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  styleUrls: ['./user.component.css'],
 })
-export class UserComponent implements OnInit { 
+export class UserComponent implements OnInit {
   users: User[] = [];
   selectedUser?: User;
   userName?: string;
   userDetails?: string;
-  
-  constructor(private userService: UserService) { }
-  
-  
+
+  constructor(private userService: UserService, private matDialog: MatDialog) {}
+
   ngOnInit(): void {
     this.getUsers();
-    
   }
   onSelect(user: User): void {
     this.selectedUser = user;
   }
-  
-  getUsers(){
+
+  getUsers() {
     this.users = this.userService.getUsers();
   }
 
   add(form: NgForm): void {
-    const newUser: User = {
-      id: this.users.length,
-      name: form.value.userName,
-      details: form.value.userDetails,
+    if (form.invalid) {
+      return alert('Please enter a valid user name');
     }
-    this.userService.addUser(newUser)
-      
+
+    const newUser: User = new User(
+      this.users.length,
+      form.value.userName,
+      form.value.userDetails
+    );
+    this.userService.addUser(newUser);
   }
-  
-  delete(user: User){
+
+  openDialog(form: NgForm){
+    if (form.invalid) {
+      // const dialogRef = this.matDialog.open();
+
+      // dialogRef.afterClosed().subscribe(result => {
+      //   console.log(`Dialog result: ${result}`);
+      // });
+    }
+  }
+
+  delete(user: User) {
     this.userService.delete(user.id);
   }
 }
@@ -52,4 +63,4 @@ export class UserComponent implements OnInit {
 //       details: user.details,
 //     },
 //   },
-  // );
+// );

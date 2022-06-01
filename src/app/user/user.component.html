@@ -1,12 +1,14 @@
 <h2>Developers list</h2>
 
-<form #form="ngForm" (ngSubmit)="add(form)" >
-  <input  placeholder="Enter the user name" type="text" name="userName" #userName ngModel> <br>
-  <input type="text" placeholder="Enter the user details"  name="userDetails" #userDetails ngModel>
-  <br>
-  <button>
-    <span class="badge">Add user</span>
-  </button>
+<form #form="ngForm" (ngSubmit)="add(form)"  >
+
+    <input required placeholder="Enter the user name" type="text" name="userName" ngModel> <br>
+    <input type="text" placeholder="Enter the user details"  name="userDetails" ngModel>
+    <br>
+    <button mat-raised-button color="primary">
+      <span class="badge">Add user</span>
+    </button>
+
 </form>
 
 
@@ -21,4 +23,3 @@
 
   </li>
 </ul>
-<app-user-details>[user]="selectedUser"</app-user-details>
