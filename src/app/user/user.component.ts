@@ -3,7 +3,7 @@ import {User} from '../user'
 import {MatDialog} from '@angular/material/dialog';
 import { UserDetailsComponent } from '../user-details/user-details.component';
 import {UserService} from '../user.service';
-import {FormsModule, NgForm} from '@angular/forms';
+import {NgForm} from '@angular/forms';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
