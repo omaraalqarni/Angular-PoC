@@ -1,7 +1,7 @@
 import {User} from './user'
 
 export const UserList: User[] = [
-  { id: 1, name: 'Omar', details:"Intern at Takamul" },
-  { id: 2, name: 'Ahmed',details:"Hardworking student" },
-  { id: 3, name: 'Khaled',details:"Front-end developer" },
+  new User(1,  'Omar', "Intern at Takamul"),
+  new User(2,  'Ahmed', "Hardworking student" ),
+  new User(3, 'Khaled', "Front-end developer"),
 ];

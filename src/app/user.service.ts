@@ -5,18 +5,19 @@ import {User} from './user';
   providedIn: 'root'
 })
   export class UserService {
-
+  users:User[] = UserList;
   constructor() { }
+
   getUsers(): User[]{
     return UserList;
   }
   addUser(user: User): void{
-    UserList.push(user);
+    this.users.push(user);
   }
-  delete(user:User): void{
-    delete UserList[user.id-1];
+  delete(index: number): void{
+    this.users.splice(index-1, 1)
   }
-  listLength(): number{
-    return UserList.length;
+  updateUser(index: number, updatedUser:User){
+    this.users[index] = updatedUser;
   }
 }

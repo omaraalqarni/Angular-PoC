@@ -1,22 +1,22 @@
 <h2>Developers list</h2>
 
-<form >
-  <input placeholder="Enter the user name" type="text" #userName> <br>
-  <input type="text" placeholder="Enter the user details" #userDetails>
+<form #form="ngForm" (ngSubmit)="add(form)" >
+  <input  placeholder="Enter the user name" type="text" name="userName" #userName ngModel> <br>
+  <input type="text" placeholder="Enter the user details"  name="userDetails" #userDetails ngModel>
   <br>
   <button>
-    <span class="badge" (click)="add(userName.value, userDetails.value)">Add user</span>
+    <span class="badge">Add user</span>
   </button>
 </form>
 
 
 <ul class="users">
   <li *ngFor="let user of users">
-    <button [class.selected]="user === selectedUser" type="button" (click)="onSelect(user)">
+    <button [class.selected]="user == selectedUser" type="button" (click)="onSelect(user)">
       <span class="badge">{{user.id}}</span>
       <span class="name">{{user.name}}</span>
       
-      <button class="badge" (click)="delete(user)" >delete</button>
+      <button class="delete badge" (click)="delete(user)" >delete</button>
     </button>
 
   </li>

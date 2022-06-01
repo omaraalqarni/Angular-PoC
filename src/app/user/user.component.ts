@@ -3,6 +3,7 @@ import {User} from '../user'
 import {MatDialog} from '@angular/material/dialog';
 import { UserDetailsComponent } from '../user-details/user-details.component';
 import {UserService} from '../user.service';
+import {FormsModule, NgForm} from '@angular/forms';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -29,18 +30,18 @@ export class UserComponent implements OnInit {
     this.users = this.userService.getUsers();
   }
 
-  add(userName: string, userDetails: string): void{
-    const userAdded: User = {
-      id: this.userService.listLength(),
-      name: userName,
-      details: userDetails,
+  add(form: NgForm): void {
+    const newUser: User = {
+      id: this.users.length,
+      name: form.value.userName,
+      details: form.value.userDetails,
     }
-    this.userService.addUser(userAdded);
-    
+    this.userService.addUser(newUser)
+      
   }
   
   delete(user: User){
-    this.userService.delete(user);
+    this.userService.delete(user.id);
   }
 }
 // this.matDialog.open(UserDetailsComponent,
