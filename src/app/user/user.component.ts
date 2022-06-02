@@ -34,27 +34,9 @@ export class UserComponent implements OnInit {
     this.users = this.userService.getUsers();
   }
 
-  dial(){
-    this.dialogService.confirmGeneral("too short");
+  dial(text: string): void {
+    this.dialogService.confirmGeneral(text);
 
-  }
-  add(form: NgForm) {
-    if (form.invalid) {
-      console.log(form);
-      
-      this.dialogService.confirmGeneral("too short");
-    }
-    if (form.value.userName.length > 30) {
-      this.dialogService.confirmGeneral("too long")
-    } 
-    else {
-      const newUser: User = new User(
-        this.users.length,
-        form.value.userName,
-        form.value.userDetails
-      );
-      this.userService.addUser(newUser);
-    }
   }
 
   delete(index: number) {
@@ -63,6 +45,6 @@ export class UserComponent implements OnInit {
   }
 
   update(index: number){
-    // this.userService.updateUser(index, );
+    this.dialogService.update()
   }
 }

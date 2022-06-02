@@ -1,0 +1,29 @@
+    <div
+      *ngIf="userName.invalid && (userName.dirty || userName.touched)"
+      class="alert"
+    >
+      <div *ngIf="userName.errors?.['required']">
+        <!-- {{ dial("Name is required") }} -->
+      </div>
+      <div *ngIf="userName.errors?.['minlength']">
+        <!-- {{ dial("Name has to be more than 2 characters") }} -->
+      </div>
+      <div *ngIf="userName.errors?.['maxlength']"></div>
+    </div>
+
+
+
+<form class="form" #form="ngForm" (ngSubmit)="add(form)" class="myForm">
+  <mat-form-field >
+    <input matInput type="text" name="userName" ngModel #userName="ngModel" required minlength="2" maxlength="30" placeholder="Enter the user name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="text" placeholder="Enter the user details" name="userDetails" ngModel>
+
+    
+  </mat-form-field>
+  <button mat-raised-button color="primary">
+    <span class="badge">Add user</span>
+  </button>
+</form>

@@ -1,49 +1,28 @@
-<h2>Developers list</h2>
+<div class="container">
+  <h1>Developers List</h1>
+  <app-add-user></app-add-user>
 
-<form #form="ngForm" (ngSubmit)="add(form)">
-  <input
-    required
-    placeholder="Enter the user name"
-    type="text"
-    name="userName"
-    ngModel
-    #userName="ngModel"
-    minlength ="2"
-    maxlength="30"
-  />
-  <br />
-  <input
-    type="text"
-    placeholder="Enter the user details"
-    name="userDetails"
-    ngModel
-  />
-  <br />
-  <button mat-raised-button color="primary">
-    <span class="badge">Add user</span>
-  </button>
-  <p *ngIf="userName.invalid"></p>
-</form>
-
-<ul class="users">
-  <li *ngFor="let user of users">
-    <mat-accordion>
-      <mat-expansion-panel hideToggle>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <span class="name">{{ user.name }}</span>
-          </mat-panel-title>
-          <mat-panel-description> </mat-panel-description>
-        </mat-expansion-panel-header>
-        {{ user.details }}
-      </mat-expansion-panel>
-    </mat-accordion>
-    <button (click)="update(user.id)">
-      <mat-icon>compare_arrows</mat-icon>
-    </button>
-    <button class="delete-button" (click)="delete(user.id)">
-      <mat-icon>delete</mat-icon>
-    </button>
-    
-  </li>
-</ul>
+  <div class="user-wrap">
+    <ul class="users">
+      <li *ngFor="let user of users" class="li-users">
+        <mat-accordion class="accordion-class">
+          <mat-expansion-panel hideToggle >
+            <mat-expansion-panel-header class="expansion-header">
+              <mat-panel-title class="userName">
+                <span class="name">{{ user.name }}</span>
+              </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+              <button mat-raised-button color="primary" (click)="update(user.id)">
+                <mat-icon class="icon">compare_arrows</mat-icon>
+              </button>
+              <button mat-raised-button color="primary" class="delete-button" (click)="delete(user.id)">
+                <mat-icon class="icon">delete</mat-icon>
+              </button>
+            </mat-expansion-panel-header>
+            {{ user.details }}
+          </mat-expansion-panel>
+        </mat-accordion>
+      </li>
+    </ul>
+  </div>
+</div>

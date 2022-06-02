@@ -1,43 +1,100 @@
 
-.users {
-  margin: 0 0 2em 0;
-  list-style-type: none;
-  padding: 0;
-  width: 15em;
+h1 { 
+  padding-bottom:30px;
+  text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 40px;
+  font-weight: bold;
 }
 
-.users li {
-  display: flex;
+.container{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  border: 5px solid black;
+  padding: 10px;
+  background-color: rgba(255,255,255,1);
 }
+
+.userName{
+  width: 100%;
+}
+
+.user-wrap {
+  list-style-type:decimal;
+
+  padding: 0;
+  margin: 0;
+
+  border-radius: 5px;
+
+}
+
+
+
+.li-users {
+  display: flex;
+  width: 60%;
+
+
+}
+
 
 .users button {
   flex: 1;
   cursor: pointer;
   position: relative;
-  left: 0;
-  background-color: #EEE;
   margin: .5em;
-  padding: 0;
+  padding: 2em;
   border-radius: 4px;
   display: flex;
   align-items: stretch;
   height: 1.8em;
 }
 
+.accordion-class{
+  display: flex;
+  height: 100%;
+
+  padding:10px;
+}
 .users button:hover {
-  color: #2c3a41;
-  background-color: #e6e6e6;
+  
   left: .1em;
 }
 
-.users button:active {
-  background-color: #525252;
-  color: #fafafa;
+
+
+mat-expansion-panel{
+  
+  margin-left: 80px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+
 }
 
-.users button.selected {
-  background-color: black;
-  color: white;
+
+.expansion-header{
+  width: 500px;
+  height: 75px;
+
+}
+
+.icon{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+
+/* .users button.selected {
+
+
+
 }
 
 .users button.selected:hover {
@@ -46,21 +103,31 @@
 }
 
 .users button.selected:active {
-  background-color: black;
-  color: white;
-}
-
+   background-color: black;
+  color: white; 
+} 
+*/
 .users .badge {
   display: inline-block;
   font-size: small;
-  color: white;
+
   padding: 0.8em 0.7em 0 0.7em;
   background-color: #405061;
   line-height: 1em;
-  margin-right: .8em;
+  margin-right: 1.8em;
   border-radius: 4px 0 0 4px;
 }
 
 .users .name {
   align-self: center;
+}
+
+
+/* Styling the background */
+
+@import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+
+
+body{
+    font-family: 'Exo', sans-serif;
 }
