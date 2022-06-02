@@ -1,25 +1,49 @@
 <h2>Developers list</h2>
 
-<form #form="ngForm" (ngSubmit)="add(form)"  >
-
-    <input required placeholder="Enter the user name" type="text" name="userName" ngModel> <br>
-    <input type="text" placeholder="Enter the user details"  name="userDetails" ngModel>
-    <br>
-    <button mat-raised-button color="primary">
-      <span class="badge">Add user</span>
-    </button>
-
+<form #form="ngForm" (ngSubmit)="add(form)">
+  <input
+    required
+    placeholder="Enter the user name"
+    type="text"
+    name="userName"
+    ngModel
+    #userName="ngModel"
+    minlength ="2"
+    maxlength="30"
+  />
+  <br />
+  <input
+    type="text"
+    placeholder="Enter the user details"
+    name="userDetails"
+    ngModel
+  />
+  <br />
+  <button mat-raised-button color="primary">
+    <span class="badge">Add user</span>
+  </button>
+  <p *ngIf="userName.invalid"></p>
 </form>
-
 
 <ul class="users">
   <li *ngFor="let user of users">
-    <button [class.selected]="user == selectedUser" type="button" (click)="onSelect(user)">
-      <span class="badge">{{user.id}}</span>
-      <span class="name">{{user.name}}</span>
-      
-      <button class="delete badge" (click)="delete(user)" >delete</button>
+    <mat-accordion>
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <span class="name">{{ user.name }}</span>
+          </mat-panel-title>
+          <mat-panel-description> </mat-panel-description>
+        </mat-expansion-panel-header>
+        {{ user.details }}
+      </mat-expansion-panel>
+    </mat-accordion>
+    <button (click)="update(user.id)">
+      <mat-icon>compare_arrows</mat-icon>
     </button>
-
+    <button class="delete-button" (click)="delete(user.id)">
+      <mat-icon>delete</mat-icon>
+    </button>
+    
   </li>
 </ul>

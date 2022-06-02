@@ -3,6 +3,8 @@ import { User } from '../user';
 import { MatDialog } from '@angular/material/dialog';
 import { UserService } from '../shared/user-service/user.service';
 import { NgForm } from '@angular/forms';
+import { DialogsService } from '../shared/dialogs/dialogs.service';
+
 
 @Component({
   selector: 'app-user',
@@ -15,7 +17,11 @@ export class UserComponent implements OnInit {
   userName?: string;
   userDetails?: string;
 
-  constructor(private userService: UserService, private matDialog: MatDialog) {}
+  constructor(
+    private userService: UserService,
+    private matDialog: MatDialog,
+    private dialogService: DialogsService
+  ) {}
 
   ngOnInit(): void {
     this.getUsers();
@@ -28,39 +34,35 @@ export class UserComponent implements OnInit {
     this.users = this.userService.getUsers();
   }
 
-  add(form: NgForm): void {
-    if (form.invalid) {
-      return alert('Please enter a valid user name');
-    }
+  dial(){
+    this.dialogService.confirmGeneral("too short");
 
-    const newUser: User = new User(
-      this.users.length,
-      form.value.userName,
-      form.value.userDetails
-    );
-    this.userService.addUser(newUser);
+  }
+  add(form: NgForm) {
+    if (form.invalid) {
+      console.log(form);
+      
+      this.dialogService.confirmGeneral("too short");
+    }
+    if (form.value.userName.length > 30) {
+      this.dialogService.confirmGeneral("too long")
+    } 
+    else {
+      const newUser: User = new User(
+        this.users.length,
+        form.value.userName,
+        form.value.userDetails
+      );
+      this.userService.addUser(newUser);
+    }
   }
 
-  openDialog(form: NgForm){
-    if (form.invalid) {
-      // const dialogRef = this.matDialog.open();
-
-      // dialogRef.afterClosed().subscribe(result => {
-      //   console.log(`Dialog result: ${result}`);
-      // });
-    }
+  delete(index: number) {
+    this.dialogService.confirmDelete();
+    this.userService.delete(index);
   }
 
-  delete(user: User) {
-    this.userService.delete(user.id);
+  update(index: number){
+    // this.userService.updateUser(index, );
   }
 }
-// this.matDialog.open(UserDetailsComponent,
-//   {
-//     data: {
-//       id: user.id,
-//       userName: user.name,
-//       details: user.details,
-//     },
-//   },
-// );
