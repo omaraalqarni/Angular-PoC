@@ -25,12 +25,10 @@ export class AddUserComponent implements OnInit {
   }
 
   add(form: NgForm) {
-    if (form.invalid) {
-      console.log(form);
-      
+    if (form.value.userName.length < 2) {
       this.dialogService.confirmGeneral("too short");
     }
-    if (form.value.userName.length > 30) {
+    else if (form.value.userName.length > 30) {
       this.dialogService.confirmGeneral("too long")
     } 
     else {
