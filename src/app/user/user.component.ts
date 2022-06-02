@@ -12,26 +12,16 @@ import { DialogsService } from '../shared/dialogs/dialogs.service';
   styleUrls: ['./user.component.css'],
 })
 export class UserComponent implements OnInit {
-  users: User[] = [];
-  selectedUser?: User;
   userName?: string;
   userDetails?: string;
 
   constructor(
     private userService: UserService,
-    private matDialog: MatDialog,
     private dialogService: DialogsService
   ) {}
 
   ngOnInit(): void {
-    this.getUsers();
-  }
-  onSelect(user: User): void {
-    this.selectedUser = user;
-  }
-
-  getUsers() {
-    this.users = this.userService.getUsers();
+    
   }
 
   dial(text: string): void {
@@ -39,12 +29,6 @@ export class UserComponent implements OnInit {
 
   }
 
-  delete(index: number) {
-    this.dialogService.confirmDelete();
-    this.userService.delete(index);
-  }
+  
 
-  update(index: number){
-    this.dialogService.update()
-  }
 }
