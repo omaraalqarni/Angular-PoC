@@ -1,0 +1,20 @@
+<div *ngIf="user">
+  <table>
+    <tr class="headers">
+      <th>Job</th>
+      <th>Email</th>
+      <th>Phone number</th>
+      <th>Twitter profile</th>
+    </tr>
+    <tr>
+      <td>{{ user.details[0] }}</td>
+      <td>{{ user.details[1] }}</td>
+      <td>{{ user.details[2] }}</td>
+      <td>
+        <a href="https://twitter.com/{{ user.details[3] }}">{{
+          user.details[3]
+        }}</a>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -16,7 +16,7 @@ import { DialogsComponent } from './dialogs/dialogs.component';
 import { UpdateDialogComponent } from './dialogs/update-dialog/update-dialog.component';
 import { AddUserComponent } from './user/add-user/add-user.component';
 import { UserCardComponent } from './user/user-card/user-card.component';
-import { ConfirmComponent } from './dialogs/confirm/confirm.component';
+import { UserDetailsComponent } from './user/user-card/user-details/user-details.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { ConfirmComponent } from './dialogs/confirm/confirm.component';
     UpdateDialogComponent,
     AddUserComponent,
     UserCardComponent,
-    ConfirmComponent,
+    UserDetailsComponent,
   ],
   imports: [
     BrowserModule,

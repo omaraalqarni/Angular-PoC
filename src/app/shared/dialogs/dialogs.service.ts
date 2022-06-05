@@ -14,21 +14,6 @@ export class DialogsService {
 
   constructor(private dialog: MatDialog) { }
 
-  openConfirm(){
-   
-  }
-  
-  isConfirmed(isIt: boolean){
-    
-  }
-  
-  confirm(index: number){
-    // this.dialog.open(ConfirmDeleteComponent, { 
-    //   width: '390px',
-    // });
-  }
-
-
   update(){
     this.dialog.open(UpdateDialogComponent, { 
       width: '800px',

@@ -1,50 +1,43 @@
 <ul class="users">
-<div class="card-box">
+<div class="container">
   <li *ngFor="let user of users" class="li-users">
     <mat-accordion class="accordion-class">
       <mat-expansion-panel hideToggle >
         <mat-expansion-panel-header class="expansion-header">
-          <mat-panel-title class="userName">
+          <mat-panel-title class="userName" >
             <span class="name">{{ user.name }}</span>
           </mat-panel-title>
           <mat-panel-description> </mat-panel-description>
           <button  mat-fab  class="btn update" (click)="update(users.indexOf(user))">
             <mat-icon class="icon">compare_arrows</mat-icon>
           </button>
-          <button mat-fab class="btn delete" (click)="confirmDelete(users.indexOf(user))">
+          <button mat-fab class="btn delete" (click)="delete(users.indexOf(user))">
             <mat-icon class="icon delete-icon" color="warn">delete</mat-icon>
           </button>
         </mat-expansion-panel-header>
-
-        <table mat-table #table [dataSource]="user.details">
-          <ng-container matColumnDef="column">
-            <th mat-header-cell *matHeaderCellDef> header </th>
-            <td mat-cell *matCellDef="let row"> {{row.column}} </td>
-          </ng-container>
-          <tr mat-header-row *matHeaderRowDef="['column']"></tr>
-          <tr mat-row *matRowDef="let row; columns: ['column'];"></tr>
-        </table>
-
-        <table >
-          
-          <tr>
+        <!-- since detail component did not work properly i will implement it here -->
+        <table class="details">
+          <tr class="headers">
             <th>Job</th>
             <th>Email</th>
             <th>Phone number</th>
             <th>Twitter profile</th>
           </tr>
           <tr>
-            <td>{{user.details[0]}}</td>
-            <td>{{user.details[1]}}</td>
-            <td>{{user.details[2]}}</td>
-            <td><a href="https://twitter.com/{{user.details[3]}}">{{user.details[3]}}</a></td>
+            <td>{{ user.details[0] }}</td>
+            <td>{{ user.details[1] }}</td>
+            <td>{{ user.details[2] }}</td>
+            <td>
+              <a href="https://twitter.com/{{ user.details[3] }}">@{{
+                user.details[3]
+              }}</a>
+            </td>
           </tr>
-
         </table>
-        
+        <!-- <app-user-details [user]="selectedUser"></app-user-details> -->
       </mat-expansion-panel>
     </mat-accordion>
-       
+    
   </li>
 </div>
 </ul>

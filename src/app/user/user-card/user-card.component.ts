@@ -11,12 +11,12 @@ import {UserList} from '../../mock-users'
 })
 export class UserCardComponent implements OnInit {
   users: User[] = UserList;
-  userDetails?: string;
-  displayedColumns: string[] = ["Job", "Email", "mobile number", "Twitter"]
-  
+
+  selectedUser?: User;
   constructor(
     private userService: UserService,
     private dialogService: DialogsService,
+
   ) { }
 
   ngOnInit(): void {
@@ -31,7 +31,7 @@ export class UserCardComponent implements OnInit {
     this.dialogService.update()
   }
 
-  confirmDelete(index: number) {
+  delete(index: number) {
     this.userService.delete(index);
     
   }
