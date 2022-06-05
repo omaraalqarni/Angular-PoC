@@ -14,10 +14,12 @@ import { User } from 'src/app/user';
 export class AddUserComponent implements OnInit {
   users: User[] = [];
   userName?: string;
-  userDetails?: string;
+  job?: string;
+  email?: string;
+  mobileNumber?: string;
+  twitter?: string;
   constructor(
     private userService: UserService,
-    private matDialog: MatDialog,
     private dialogService: DialogsService
   ) { }
 
@@ -26,16 +28,18 @@ export class AddUserComponent implements OnInit {
 
   add(form: NgForm) {
     if (form.value.userName.length < 2) {
-      this.dialogService.confirmGeneral("too short");
+      this.dialogService.confirmGeneral("User name must be at least 2 characters");
     }
-    else if (form.value.userName.length > 30) {
-      this.dialogService.confirmGeneral("too long")
-    } 
     else {
       const newUser: User = new User(
-        this.users.length,
+
         form.value.userName,
-        form.value.userDetails
+        [
+          form.value.job,
+          form.value.email,
+          form.value.mobileNumber,
+          form.value.twitter,
+        ]
       );
       this.userService.addUser(newUser);
     }

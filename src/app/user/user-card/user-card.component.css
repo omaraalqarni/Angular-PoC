@@ -5,12 +5,14 @@
 
 .li-users {
   display: flex;
-  width: 60%;
+  width: 100%;
   list-style: none;
-
-
+  
 }
 
+.users button:hover {
+  left: .1em;
+}
 
 .users button {
   flex: 1;
@@ -22,32 +24,32 @@
   display: flex;
   align-items: stretch;
   height: 1.8em;
+  border-radius: 100px;
 }
+
 
 .accordion-class{
   display: flex;
   height: 100%;
-
-
   padding:10px;
+  margin: 0 auto;
+  overflow-y: scroll;
 }
-.users button:hover {
-  left: .1em;
-}
+
+
 
 
 mat-expansion-panel{
-  
-  margin-left: 80px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-
+  height: 100%;
 
 }
 
 
 .expansion-header{
-  width: 500px;
+  position: relative;
+  width: 1000px;
   height: 75px;
 
 }
@@ -59,4 +61,15 @@ mat-expansion-panel{
   transform: translate(-50%, -50%);
 
 }
+
+
+.update{
+  background-color: #4e54c8;
+}
+
+.delete{
+  background-color: white;
+}
+
+
 

@@ -15,9 +15,10 @@ import {User} from '../../user';
     this.users.push(user);
   }
   delete(index: number): void{
-    this.users.splice(index-1, 1)
+    this.users.splice(index, 1)
   }
   updateUser(index: number, updatedUser:User){
+
     this.users[index] = updatedUser;
   }
 }

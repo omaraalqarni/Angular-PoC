@@ -1,7 +1,6 @@
 export class User {
   constructor(
-    public id: number,
     public name: string, 
-    public details?: string,
+    public details: [job: string, email: string, mobileNumber: string, twitterProfile?: string ],
   ) {}
 }

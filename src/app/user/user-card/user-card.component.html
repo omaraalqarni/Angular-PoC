@@ -1,4 +1,5 @@
 <ul class="users">
+<div class="card-box">
   <li *ngFor="let user of users" class="li-users">
     <mat-accordion class="accordion-class">
       <mat-expansion-panel hideToggle >
@@ -7,15 +8,43 @@
             <span class="name">{{ user.name }}</span>
           </mat-panel-title>
           <mat-panel-description> </mat-panel-description>
-          <button mat-raised-button color="primary" (click)="update(user.id)">
+          <button  mat-fab  class="btn update" (click)="update(users.indexOf(user))">
             <mat-icon class="icon">compare_arrows</mat-icon>
           </button>
-          <button mat-raised-button color="primary" class="delete-button" (click)="delete(user.id)">
-            <mat-icon class="icon">cancel</mat-icon>
+          <button mat-fab class="btn delete" (click)="confirmDelete(users.indexOf(user))">
+            <mat-icon class="icon delete-icon" color="warn">delete</mat-icon>
           </button>
         </mat-expansion-panel-header>
-        {{ user.details }}
+
+        <table mat-table #table [dataSource]="user.details">
+          <ng-container matColumnDef="column">
+            <th mat-header-cell *matHeaderCellDef> header </th>
+            <td mat-cell *matCellDef="let row"> {{row.column}} </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="['column']"></tr>
+          <tr mat-row *matRowDef="let row; columns: ['column'];"></tr>
+        </table>
+
+        <table >
+          
+          <tr>
+            <th>Job</th>
+            <th>Email</th>
+            <th>Phone number</th>
+            <th>Twitter profile</th>
+          </tr>
+          <tr>
+            <td>{{user.details[0]}}</td>
+            <td>{{user.details[1]}}</td>
+            <td>{{user.details[2]}}</td>
+            <td><a href="https://twitter.com/{{user.details[3]}}">{{user.details[3]}}</a></td>
+          </tr>
+
+        </table>
+        
       </mat-expansion-panel>
     </mat-accordion>
+       
   </li>
+</div>
 </ul>
