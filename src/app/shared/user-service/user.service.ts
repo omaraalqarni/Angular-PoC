@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+
 import {UserList} from '../../mock-users';
 import {User} from '../../user';
 @Injectable({
@@ -12,6 +13,7 @@ import {User} from '../../user';
     return UserList;
   }
   addUser(user: User): void{
+    
     this.users.push(user);
   }
   delete(index: number): void{
@@ -21,4 +23,21 @@ import {User} from '../../user';
 
     this.users[index] = updatedUser;
   }
+
+//   async findByEmail(email: string): Promise<User | void>{
+//     return new Promise<User | void>(resolve =>{
+//       setTimeout(() => {
+//         const foundUser = this.users.find(u => u.details[1]) === email);
+//         if (foundUser) {
+//           resolve(foundUser);
+//         }else{
+//           resolve(null);
+//         }
+//     }
+//     ,2000);
+//   }
+//   );
+// }
+ 
+ 
 }

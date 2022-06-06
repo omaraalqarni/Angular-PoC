@@ -28,7 +28,7 @@ export class UserCardComponent implements OnInit {
   }
 
   update(index: number){
-    this.dialogService.update()
+    this.dialogService.update(index);
   }
 
   delete(index: number) {

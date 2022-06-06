@@ -14,11 +14,16 @@ export class DialogsService {
 
   constructor(private dialog: MatDialog) { }
 
-  update(){
+  update(index: number){
+
     this.dialog.open(UpdateDialogComponent, { 
       width: '800px',
-      height: '400px'
+      height: '400px',
+      data:{
+        index: index,
+      }
     });
+    
   }
   confirmGeneral(text: string){
     this.dialog.open(DialogsComponent,{
