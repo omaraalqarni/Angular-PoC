@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DialogsService } from 'src/app/shared/dialogs/dialogs.service';
 import { UserService } from 'src/app/shared/user-service/user.service';
 import { User } from 'src/app/user';
@@ -10,9 +10,9 @@ import {UserList} from '../../mock-users'
   styleUrls: ['./user-card.component.css']
 })
 export class UserCardComponent implements OnInit {
-  users: User[] = UserList;
-
-  selectedUser?: User;
+  users: User[] = [];
+  userJob: string;
+  userDetail= {job ,  email:string, mobileNumber:string, twitterLink:string}
   constructor(
     private userService: UserService,
     private dialogService: DialogsService,

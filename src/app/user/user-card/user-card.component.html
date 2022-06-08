@@ -15,26 +15,7 @@
             <mat-icon class="icon delete-icon" color="warn">delete</mat-icon>
           </button>
         </mat-expansion-panel-header>
-        <!-- since detail component did not work properly i will implement it here -->
-        <table class="details">
-          <tr class="headers">
-            <th>Job</th>
-            <th>Email</th>
-            <th>Phone number</th>
-            <th>Twitter profile</th>
-          </tr>
-          <tr>
-            <td>{{ user.details[0] }}</td>
-            <td>{{ user.details[1] }}</td>
-            <td>{{ user.details[2] }}</td>
-            <td>
-              <a href="https://twitter.com/{{ user.details[3] }}">{{
-                user.details[3]
-              }}</a>
-            </td>
-          </tr>
-        </table>
-        <!-- <app-user-details [user]="selectedUser"></app-user-details> -->
+        <app-user-details [userJob]="user.details.job"></app-user-details>
       </mat-expansion-panel>
     </mat-accordion>
     

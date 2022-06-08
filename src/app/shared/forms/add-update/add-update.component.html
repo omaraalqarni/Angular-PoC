@@ -1,5 +1,6 @@
-<form [formGroup]="details"  (ngSubmit)="onSubmit()">
-  <input type="text" hidden formControlName="index">
+
+<h1 style="text-align:center; margin-left: 0px;" *ngIf="">Update user</h1>
+<form [formGroup]="details"  (ngSubmit)="onSubmit()"> 
   <mat-form-field class="name">
     <input
       matInput
@@ -15,8 +16,9 @@
   <mat-error class="field-message " *ngIf="job.touched && job.invalid" >Job title must be between 2 to 30 characters</mat-error>
 </mat-form-field>
 <mat-form-field class="details"> 
-  <input matInput formControlName="email" name="email" placeholder="Email" type="text"> <br>
-  <mat-error class="field-message " *ngIf="emailAddress.errors?.['validEmail']" >Invalid Email</mat-error>
+  <input matInput formControlName="emailAddress" name="emailAddress" placeholder="Email" type="text"> <br>
+  <mat-error class="field-message " *ngIf="emailAddress.errors?.['validEmail'] && emailAddress.invalid && emailAddress.touched" >Invalid Email</mat-error>
+  <mat-error class="field-message " *ngIf="emailAddress.errors"></mat-error>
 </mat-form-field>
 <mat-form-field class="details"> 
   <input matInput formControlName="mobileNumber" name="mobileNumber" placeholder="Phone Number" type="text">
@@ -27,7 +29,7 @@
   <mat-error class="field-message " *ngIf="twitterLink.errors?.['validTwitterLink']" >Invalid Twitter handler</mat-error>
 </mat-form-field>
 
-  <button [disabled]="!details.valid" class="btn btn-" mat-raised-button color="primary" >
-    <span>Add user</span>
+  <button [disabled]="!details.valid" class="btn" mat-raised-button color="primary" >
+    <span>Submit</span>
   </button>
 </form>

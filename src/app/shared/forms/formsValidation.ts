@@ -1,9 +1,6 @@
-import { AbstractControl, AsyncValidatorFn, FormControl, ValidationErrors, ValidatorFn } from "@angular/forms";
-import { map, Observable } from "rxjs";
-import { UserList } from "src/app/mock-users";
-import { User } from "src/app/user";
+import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
 
-import { UserService } from "../user-service/user.service";
+
 export function validatePhoneNumber(): ValidatorFn {
 
   return (control: AbstractControl): ValidationErrors | null => {
@@ -38,13 +35,4 @@ export function validateEmail(): ValidatorFn {
     const isValid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value);
     return !isValid ? {validEmail:true}:null;
   };
-}
-export function emailExistsValidator(control: FormControl): Promise<any> | Observable<any> {
-  const user: User[] =  UserList ;
-  
-  const promise = new Promise<any>((resolve, reject) => {
-    setTimeout(() => {
-      if(control.value === u)
-    }, 1500);
-  })
 }

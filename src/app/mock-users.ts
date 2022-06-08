@@ -1,13 +1,8 @@
 import {User} from './user'
 
 export const UserList: User[] = [
-  new User( 'Omar',["intern at Takamul", "omar_alqarni@outlook.com", "055555555", "Omar"]),
-  new User( 'Ahmed',["Frontend", "ahmed@outlook.com", "053423254","Ahmed"]),
-  new User( 'Omar',["DevOps engineer", "Ali@outlook.com", "0545938571", "Ali"]),
-  new User('Khaled', ["Backend developer", "khaled@gmail.com", "055555555"]),
-  new User('Khaled', ["Backend developer", "khaled@gmail.com", "055555555"]),
-  new User('Khaled', ["Backend developer", "khaled@gmail.com", "055555555"]),
-  new User('Khaled', ["Backend developer", "khaled@gmail.com", "055555555"]),
-  new User('Khaled', ["Backend developer", "khaled@gmail.com", "055555555"]),
-  
+  new User( 'Omar',{job:"intern at Takamul",email: "omar_alqarni@outlook.com",mobileNumber: "055555555",twitterLink: "Omar"}),
+  new User( 'Ahmed',{job:"Frontend", email: "ahmed@outlook.com", mobileNumber: "053423254",twitterLink:"Ahmed"}),
+  new User( 'Omar',{job:"DevOps engineer",email:"Ali@outlook.com", mobileNumber: "0545938571", twitterLink: "Ali"}),
+  new User('Khaled', {job:"Backend developer",email:"khaled@gmail.com", mobileNumber:"055555555",twitterLink: ""}),  
 ];
